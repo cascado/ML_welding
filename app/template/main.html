@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<style>
+	from {
+		margin: auto;
+		width: 35%;
+	}
+	.result{
+		margin: auto;
+		width: 35%;
+		border: 1px solid #ccc;
+	}
+</style>
+
+<head>
+	<title>
+		Прогноз
+	</title>
+</head>
+
+<form action="{{url_for('main')}}" method="POST">
+	<fieldset>
+		<legend>
+			Введите значение
+		</legend>
+		<br>
+		<p>
+			Ток фокусировки электронного пучка-IF
+		</p>
+		<input name="IF" type="number"
+		required>
+		<br>
+		<br>
+		<p>
+			Скорость сварки-VW
+		</p>
+		<input name="VW" type="number"
+		required>
+		<br>
+		<br>
+		<p>
+			Величина  сварочного тока-IW
+		</p>
+		<input name="IW" type="number"
+		required>
+		<br>
+		<br>
+		<p>
+			Расстояние от поверхности образцов до электронно-оптической системы-FP
+		</p>
+		<input name="FP" type="number"
+		required>
+		<br>
+		<br>
+		<input type="submit">
+	</fieldset>
+</form>
+
+
+<div class="result" align="center">
+	{% if result_width %}
+		<br>
+		<p style="font-size: 50px;">
+		Ширина
+		</p>
+		<p style="font-size: 50px;">
+		{{result_width}}
+		</p>
+	{% endif %}
+</div>
+
+<div class="result" align="center">
+	{% if result_depth %}
+		<br>
+		<p style="font-size: 50px;">
+		Глубина
+		</p>
+		<p style="font-size: 50px;">
+		{{result_depth}}
+		</p>
+	{% endif %}
+</div>
